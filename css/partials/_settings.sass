@@ -1,0 +1,48 @@
+@import '../modules/_colours'
+@import '../modules/_mixins'
+
+.settings
+  position: absolute
+  top: 20px
+  right: 20px
+
+.settings-pod
+  position: relative
+  max-height: calc(100vh - 20px)
+  overflow: scroll
+  position: absolute
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  background-color: #fff
+  color: #333
+  padding: 15px
+
+  .close-icon
+    position: absolute
+    right: 10px
+    top: 10px
+
+  @include tablet
+    top: 13px
+    right: 13px
+    left: inherit
+    bottom: inherit
+
+.rename-project-inputs
+  input
+    margin-bottom: 10px
+    width: 50%
+
+  input:first-child
+    border-radius: 5px 0 0 5px
+
+  input:last-child
+    border-radius: 0 5px 5px 0
+    border-left: none
+
+.form-group .label-info
+  font-weight: normal
+  font-style: italic
+  background-color: inherit

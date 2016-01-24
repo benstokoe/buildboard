@@ -1,0 +1,74 @@
+import moment from 'moment';
+import _ from 'underscore';
+
+const filterProject = (project) => {
+  let filteredProject = {};
+
+  const lastRun = project.stop_time ? moment(project.stop_time).startOf().fromNow() : 'Running now';
+  let buildLength;
+  if (project.status !== 'running') {
+    buildLength = moment.duration(project.build_time_millis);
+    buildLength = ('0' + buildLength.minutes()).slice(-2) + ':' + ('0' + buildLength.seconds()).slice(-2);
+  } else {
+    const startTime = new Date(project.start_time);
+    const now = new Date();
+    const diff = moment.duration(now - startTime);
+
+    buildLength = ('0' + diff.minutes()).slice(-2) + ':' + ('0' + diff.seconds()).slice(-2);
+
+    if (project.previous_successful_build) {
+      let previousBuildLength = moment.duration(project.previous_successful_build.build_time_millis);
+      previousBuildLength = ('0' + previousBuildLength.minutes()).slice(-2) + ':' + ('0' + previousBuildLength.seconds()).slice(-2);
+
+      buildLength += '/' + previousBuildLength;
+    }
+  }
+
+  filteredProject.author = project.author_name;
+  filteredProject.branch = project.branch;
+  filteredProject.buildLength = buildLength;
+  filteredProject.lastRun = lastRun;
+  filteredProject.reponame = project.reponame;
+  filteredProject.status = project.status.toLowerCase();
+
+  return filteredProject;
+};
+
+export const filterProjects = (projects) => {
+  let reducedProjects = [];
+  let filteredProjects = [];
+
+  const masterRepos = _.where(projects, { branch: 'master' });
+  masterRepos.forEach((repo) => {
+    const repos = _.filter(projects, (project) => {
+      return project.reponame === repo.reponame && project.branch !== 'master';
+    }).sort((a, b) => { return a.branch > b.branch; });
+
+    const reducedProject = {
+      reponame: repo.reponame,
+      master: repo,
+      branches: repos
+    };
+
+    reducedProjects.push(reducedProject);
+  });
+
+  reducedProjects.forEach((project) => {
+    let filteredProject = {
+      reponame: project.reponame,
+      branches: []
+    };
+
+    filteredProject.master = filterProject(project.master);
+
+    if (project.branches.length > 0) {
+      project.branches.forEach((branch) => {
+        filteredProject.branches.push(filterProject(branch));
+      });
+    }
+
+    filteredProjects.push(filteredProject);
+  });
+
+  return filteredProjects;
+};

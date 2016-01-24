@@ -1,0 +1,17 @@
+@mixin tablet 
+  @media screen and (min-width: 768px) 
+    @content
+
+@mixin md-desktop 
+  @media screen and (min-width: 971px)
+      @content
+
+@mixin lg-desktop 
+  @media screen and (min-width: 1170px)
+      @content
+
+@mixin clearfix 
+  &:after 
+    content: ' '
+    display: block
+    clear: both

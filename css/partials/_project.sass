@@ -1,0 +1,54 @@
+@import '../modules/_colours'
+@import '../modules/_mixins'
+
+.project__reponame
+  padding: 30px
+  font-size: 1.5em
+  background-color: $asbestos
+
+  h2
+    margin: 0
+
+.failed .project__reponame
+  background-color: $pomegranate
+
+.timedout .project__reponame
+  background-color: $asbestos
+
+.success .project__reponame, .fixed .project__reponame
+  background-color: $nephritis
+
+.running .project__reponame, .scheduled .project__reponame
+  background-color: $orange
+
+.project__last-run, .project__build-length, .project__author
+  line-height: 50px
+  font-size: 1.5em
+  text-align: center
+
+  @include lg-desktop
+    line-height: 99px
+
+.branch
+  font-size: 0.75em
+
+  h2
+    font-weight: 500
+
+  .project__reponame
+    padding: 20px 30px
+
+  .project-info > div
+    line-height: 67px
+
+  &.failed .project__reponame
+    border-left: solid 50px $pomegranate-dark
+
+  &.timedout .project__reponame, &.canceled .project__reponame
+    border-left: solid 50px $asbestos-dark
+
+  &.success .project__reponame, &.fixed .project__reponame
+    border-left: solid 50px $nephritis-dark
+
+  &.running .project__reponame, &.scheduled .project__reponame
+    border-left: solid 50px $orange-dark
