@@ -25,7 +25,7 @@ export class App extends Component {
     dispatch(getProjects(this.circleToken));
 
     this.handleUpdateSettings = this.handleUpdateSettings.bind(this);
-    this.handleCogClick = this.handleCogClick.bind(this);
+    this.handleVisibilityClick = this.handleVisibilityClick.bind(this);
   }
 
   handleUpdateSettings(setting, value) {
@@ -34,7 +34,7 @@ export class App extends Component {
     dispatch(updateSettings(setting, value));
   }
 
-  handleCogClick() {
+  handleVisibilityClick() {
     const { dispatch } = this.props;
     dispatch(toggleSettings());
   }
@@ -50,7 +50,7 @@ export class App extends Component {
             projects={ projects.items }
             settings={ settings }
             onSettingsClick={ this.handleUpdateSettings }
-            onCogClick={ this.handleCogClick }
+            onVisibilityClick={ this.handleVisibilityClick }
           />
         </div>
       );

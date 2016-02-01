@@ -6,29 +6,29 @@
   top: 20px
   right: 20px
 
-.settings-pod
-  position: relative
-  max-height: calc(100vh - 20px)
-  overflow-y: scroll
-  position: absolute
-  top: 0
-  bottom: 0
-  left: 0
-  right: 0
-  background-color: #fff
-  color: #333
-  padding: 15px
-
-  .close-icon
+  &.settings--visible
+    position: relative
+    overflow-y: scroll
     position: absolute
-    right: 10px
-    top: 10px
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    background-color: #fff
+    color: #333
+    padding: 15px
 
-  @include tablet
-    top: 13px
-    right: 13px
-    left: inherit
-    bottom: inherit
+    .close-icon
+      position: absolute
+      right: 10px
+      top: 10px
+
+    @include tablet
+      top: 13px
+      right: 13px
+      left: inherit
+      bottom: inherit
+      max-height: calc(100vh - 20px)
 
 .rename-project-inputs
   input

@@ -3,10 +3,10 @@ import Input from './Input.react';
 import SpecificProjects from './SpecificProjects.react';
 
 const Settings = ({ projects, settings, handleUpdateSettings }) => (
-  <div className="settings-pod col-xs-12 col-sm-6">
+  <div className="settings-pod">
     <h2>Settings</h2>
 
-    <div className="settings-pod__form">
+    <div className="settings-pod__settings">
       <Input
         classes="settings-pod__dashboard-name"
         id="dashboardName"

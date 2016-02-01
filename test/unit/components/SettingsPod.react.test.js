@@ -10,14 +10,14 @@ describe('Settings Pod', () => {
     const settings = {
       visible: false
     };
-    const handleUpdateSettings = () => {};
-    const handleCogClick = () => {};
+    const onSettingsClick = () => {};
+    const handleVisibilityClick = () => {};
 
     const wrapper = shallow(
       <SettingsPod
         settings={ settings }
-        handleUpdateSettings={ handleUpdateSettings }
-        onCogClick={ handleCogClick }
+        onSettingsClick={ onSettingsClick }
+        onVisibilityClick={ handleVisibilityClick }
       />);
     expect(wrapper.find(Settings).length).to.equal(0);
     expect(wrapper.find('.settings-cog').length).to.equal(1);
@@ -32,19 +32,40 @@ describe('Settings Pod', () => {
       visible: false
     };
     let cogClicked = false;
-    const handleUpdateSettings = () => {};
-    const handleCogClick = () => {
+    const onSettingsClick = () => {};
+    const handleVisibilityClick = () => {
       cogClicked = true;
     };
 
     const wrapper = shallow(
       <SettingsPod
         settings={ settings }
-        handleUpdateSettings={ handleUpdateSettings }
-        onCogClick={ handleCogClick }
+        onSettingsClick={ onSettingsClick }
+        onVisibilityClick={ handleVisibilityClick }
       />);
 
     wrapper.find('.settings-cog').simulate('click');
     expect(cogClicked).to.equal(true);
+  });
+
+  it('should close the settings when the x is clicked on', () => {
+    const settings = {
+      visible: true
+    };
+    let xClicked = false;
+    const onSettingsClick = () => {};
+    const handleVisibilityClick = () => {
+      xClicked = true;
+    };
+
+    const wrapper = shallow(
+      <SettingsPod
+        settings={ settings }
+        onSettingsClick={ onSettingsClick }
+        onVisibilityClick={ handleVisibilityClick }
+      />);
+
+    wrapper.find('.close-icon').simulate('click');
+    expect(xClicked).to.equal(true);
   });
 });
