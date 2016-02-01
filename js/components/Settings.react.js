@@ -16,7 +16,7 @@ const Settings = ({ projects, settings, handleUpdateSettings }) => (
         onKeyUp={ (e) => { handleUpdateSettings('UPDATE_DASHBOARD_NAME', e.target.value); }}
       />
 
-      <div className="settings-pod__show-info">
+      <div className="settings-pod__show-info checkbox">
         <label>
           <input
             className="settings-pod__show-info-checkbox"
@@ -27,7 +27,7 @@ const Settings = ({ projects, settings, handleUpdateSettings }) => (
         </label>
       </div>
 
-      <div className="settings-pod__show-branches">
+      <div className="settings-pod__show-branches checkbox">
         <label>
           <input
             className="settings-pod__show-branches-checkbox"

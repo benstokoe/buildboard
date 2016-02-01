@@ -11,22 +11,24 @@ const SpecificProjects = ({ projects, settings: { specificProjects }, handleUpda
 
       return (
         <div key={ project.reponame } className="specific-projects__project checkbox">
-          <input
-            type="checkbox"
-            className={ `specific-projects__project--${ reponame.replace(' ', '-').toLowerCase() } `}
-            data-reponame={ reponame }
-            defaultChecked={ checked }
-            onChange={ (e) => {
-              handleUpdateSettings('UPDATE_SPECIFIC_PROJECTS', {
-                project: e.target.dataset.reponame,
-                show: e.target.checked
-              }); }
-            }
-          />
-          { project.reponame }
+          <label>
+            <input
+              type="checkbox"
+              className={ `specific-projects__project--${ reponame.replace(' ', '-').toLowerCase() } `}
+              data-reponame={ reponame }
+              defaultChecked={ checked }
+              onChange={ (e) => {
+                handleUpdateSettings('UPDATE_SPECIFIC_PROJECTS', {
+                  project: e.target.dataset.reponame,
+                  show: e.target.checked
+                }); }
+              }
+            />
+            { project.reponame }
+          </label>
         </div>
       );
-    })};
+    })}
   </div>
 );
 
