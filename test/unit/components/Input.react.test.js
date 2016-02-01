@@ -37,7 +37,7 @@ describe('Input', () => {
   });
 
   it('should call the event listener when it happens', () => {
-    const called = false;
+    let called = false;
     const onKeyDown = () => {
       called = true;
     };
@@ -50,6 +50,8 @@ describe('Input', () => {
         onKeyDown={ onKeyDown }
       />
     );
+
+    wrapper.find('input').simulate('keyDown', { which: 'hello' });
 
     expect(called).to.equal(true);
   });

@@ -47,6 +47,7 @@ export class App extends Component {
         <div>
           <ProjectList projects={ projects.items } settings={ settings } />
           <SettingsPod
+            projects={ projects.items }
             settings={ settings }
             onSettingsClick={ this.handleUpdateSettings }
             onCogClick={ this.handleCogClick }

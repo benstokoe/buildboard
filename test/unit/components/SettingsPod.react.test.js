@@ -6,7 +6,6 @@ import SettingsPod from '../../../js/components/SettingsPod.react';
 import Settings from '../../../js/components/Settings.react';
 
 describe('Settings Pod', () => {
-  // TODO: write test to check app calls function to call action to open settings pod
   it('should show and hide the settings based on settings', () => {
     const settings = {
       visible: false
