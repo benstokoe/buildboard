@@ -1,11 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
+import sinon from 'sinon';
 
 import Input from '../../../js/components/Input.react';
 
 describe('Input', () => {
-  // TODO: check if click handlers etc are added
   it('renders correctly', () => {
     const wrapper = shallow(
       <Input
@@ -37,10 +37,7 @@ describe('Input', () => {
   });
 
   it('should call the event listener when it happens', () => {
-    let called = false;
-    const onKeyDown = () => {
-      called = true;
-    };
+    const onKeyDown = sinon.spy();
     const wrapper = shallow(
       <Input
         id="dashboardName"
@@ -53,6 +50,6 @@ describe('Input', () => {
 
     wrapper.find('input').simulate('keyDown', { which: 'hello' });
 
-    expect(called).to.equal(true);
+    expect(onKeyDown.calledOnce).to.equal(true);
   });
 });

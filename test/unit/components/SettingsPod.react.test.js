@@ -1,6 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
+import sinon from 'sinon';
 
 import SettingsPod from '../../../js/components/SettingsPod.react';
 import Settings from '../../../js/components/Settings.react';
@@ -31,11 +32,8 @@ describe('Settings Pod', () => {
     const settings = {
       visible: false
     };
-    let cogClicked = false;
     const onSettingsClick = () => {};
-    const handleVisibilityClick = () => {
-      cogClicked = true;
-    };
+    const handleVisibilityClick = sinon.spy();
 
     const wrapper = shallow(
       <SettingsPod
@@ -45,18 +43,15 @@ describe('Settings Pod', () => {
       />);
 
     wrapper.find('.settings-cog').simulate('click');
-    expect(cogClicked).to.equal(true);
+    expect(handleVisibilityClick.calledOnce).to.equal(true);
   });
 
   it('should close the settings when the x is clicked on', () => {
     const settings = {
       visible: true
     };
-    let xClicked = false;
     const onSettingsClick = () => {};
-    const handleVisibilityClick = () => {
-      xClicked = true;
-    };
+    const handleVisibilityClick = sinon.spy();
 
     const wrapper = shallow(
       <SettingsPod
@@ -66,6 +61,6 @@ describe('Settings Pod', () => {
       />);
 
     wrapper.find('.close-icon').simulate('click');
-    expect(xClicked).to.equal(true);
+    expect(handleVisibilityClick.calledOnce).to.equal(true);
   });
 });
