@@ -6,3 +6,8 @@ dependencies:
   cache_directories:
     - "../node_modules"
 
+deployment:
+  main:
+    branch: master
+    heroku:
+      appname: circledashboard
