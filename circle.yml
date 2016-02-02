@@ -1,0 +1,8 @@
+machine:
+  node:
+    version: 5.2.0
+
+dependencies:
+  cache_directories:
+    - "../node_modules"
+
