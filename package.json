@@ -4,7 +4,7 @@
   "description": "",
   "main": "js/app.js",
   "scripts": {
-    "postinstall": "./node_modules/.bin/webpack --config webpack.production.config.js",
+    "postinstall": "webpack --config webpack.production.config.js",
     "start": "node serve.js",
     "test": "./node_modules/.bin/mocha --watch --require test/unit/setup.js --compilers js:babel-core/register test/unit/**/*"
   },
