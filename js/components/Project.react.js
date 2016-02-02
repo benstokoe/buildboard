@@ -26,10 +26,10 @@ class Project extends Component {
 
     if (settings.showInfo) {
       return (
-        <div className="project__info">
-          <p className="project__last-run col-lg-2 col-xs-4">{ project.lastRun }</p>
-          <p className="project__build-length col-lg-2 col-xs-4">{ project.buildLength }</p>
-          <p className="project__author col-lg-2 col-xs-4">{ project.author }</p>
+        <div className="project__info col-xs-12 col-md-6">
+          <p className="project__last-run col-xs-4">{ project.lastRun }</p>
+          <p className="project__build-length col-xs-4">{ project.buildLength }</p>
+          <p className="project__author col-xs-4">{ project.author }</p>
         </div>
       );
     }
@@ -46,10 +46,9 @@ class Project extends Component {
     );
 
     const reponameClasses = classnames(
-      'project__reponame col-md-12',
+      'project__reponame col-md-6',
       {
-        'col-lg-6': settings.showInfo,
-        'col-lg-12': !settings.showInfo
+        'col-lg-6': settings.showInfo
       }
     );
 

@@ -56,6 +56,7 @@ describe('Settings Reducer', () => {
     });
   });
 
+
   describe('should update the project name mapping', () => {
     it('when the project is not already in the object', () => {
       const state = {
