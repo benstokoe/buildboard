@@ -4,7 +4,7 @@
   "description": "",
   "main": "js/app.js",
   "scripts": {
-    "postinstall": "webpack --config webpack.production.config.js",
+    "postinstall": "./node_modules/.bin/webpack --config webpack.production.config.js",
     "start": "node serve.js",
     "test": "./node_modules/.bin/mocha --watch --require test/unit/setup.js --compilers js:babel-core/register test/unit/**/*"
   },
@@ -16,6 +16,7 @@
     "es6-promise": "^3.0.2",
     "exports-loader": "^0.6.2",
     "express": "^4.13.4",
+    "extract-text-webpack-plugin": "^0.9.1",
     "imports-loader": "^0.6.5",
     "isomorphic-fetch": "^2.2.0",
     "moment": "^2.10.6",
@@ -27,7 +28,8 @@
     "redux-promise-middleware": "^2.3.2",
     "redux-router": "^0.1.0",
     "underscore": "^1.8.3",
-    "url-loader": "^0.5.7"
+    "url-loader": "^0.5.7",
+    "webpack": "^1.12.9"
   },
   "devDependencies": {
     "babel": "^6.3.13",
@@ -44,7 +46,6 @@
     "enzyme": "^1.4.1",
     "eslint": "^1.10.3",
     "eslint-plugin-react": "^3.11.3",
-    "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.5",
     "jsdom": "^7.2.1",
     "mocha": "^2.3.4",
@@ -58,7 +59,6 @@
     "timekeeper": "0.0.5",
     "tk": "^0.1.2",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0"
   }
 }
