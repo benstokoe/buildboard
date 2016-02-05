@@ -1,18 +1,39 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
+import sinon from 'sinon';
 
 import Settings from '../../../js/components/Settings.react';
 import Input from '../../../js/components/Input.react';
 import SpecificProjects from '../../../js/components/SpecificProjects.react';
 
-describe('Settings', () => {
+describe.only('Settings', () => {
+  describe('Circle Token', () => {
+    it('has an Input with the default value', () => {
+      const settings = { circleToken: 'mycircletoken' };
+      const handleUpdateSettings = () => {};
+      const wrapper = shallow(<Settings projects={{}} settings={ settings } handleUpdateSettings={ handleUpdateSettings } />);
+      expect(wrapper.find('.settings-pod__circle-token').prop('children')[0].props.defaultValue).to.equal('mycircletoken');
+    });
+
+    it('should update the circle token on update button click', () => {
+      const settings = { circleToken: 'mycircletoken' };
+      const handleUpdateSettings = sinon.spy();
+      const wrapper = shallow(<Settings projects={{}} settings={ settings } handleUpdateSettings={ handleUpdateSettings } />);
+
+      wrapper.find('.settings-pod__circle-token-update-button').simulate('click', { target: { value: 'mycircletoken' }});
+
+      expect(handleUpdateSettings.calledWith('UPDATE_CIRCLE_TOKEN', 'mycircletoken')).to.equal(true);
+    });
+  });
+
   describe('Dashboard Name', () => {
-    it('has in Input with a keyup callback', () => {
+    it('has an Input with the default value and a keyup callback', () => {
       const settings = { dashboardName: 'Build Dashboard' };
       const handleUpdateSettings = () => {};
       const wrapper = shallow(<Settings projects={{}} settings={ settings } handleUpdateSettings={ handleUpdateSettings } />);
-      expect(wrapper.find(Input).prop('onKeyUp').length).to.equal(1);
+      expect(wrapper.find('.settings-pod__dashboard-name').props().children.props.defaultValue).to.equal('Build Dashboard');
+      expect(wrapper.find('.settings-pod__dashboard-name').props().children.props.onKeyUp.length).to.equal(1);
     });
   });
 

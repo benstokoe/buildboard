@@ -1,6 +1,15 @@
+const getCircleToken = () => {
+  const search = window.location.search.match(/circleToken/);
+  
+  if (search !== null) {
+    return window.location.search.match(/circleToken=(.+)/)[1].split('&')[0];
+  } 
+  return '';
+};
+
 export default function settings(state = {
   visible: false,
-  circleToken: '',
+  circleToken: getCircleToken(),
   dashboardName: 'Build Dashboard',
   specificProjects: [],
   projectNameMapping: {},
@@ -10,6 +19,8 @@ export default function settings(state = {
   switch (action.type) {
   case 'TOGGLE_SETTINGS':
     return Object.assign({}, state, { visible: !state.visible });
+  case 'UPDATE_CIRCLE_TOKEN':
+    return Object.assign({}, state, { circleToken: action.value });
   case 'UPDATE_DASHBOARD_NAME':
     return Object.assign({}, state, { dashboardName: action.value });
   case 'UPDATE_SPECIFIC_PROJECTS':

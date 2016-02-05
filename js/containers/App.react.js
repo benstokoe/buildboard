@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getProjects } from '../actions/circleActions';
 import { toggleSettings, updateSettings } from '../actions/settingsActions';
 
+import Setup from '../components/Setup.react';
 import ProjectList from '../components/ProjectList.react';
 import SettingsPod from '../components/SettingsPod.react';
 import Header from '../components/Header.react';
@@ -18,14 +19,9 @@ export class App extends Component {
   constructor(props) {
     super(props);
 
-    // quick hack
-    this.circleToken = window.location.search.match(/circleToken=(.+)/)[1].split('&')[0];
-
-    const { dispatch } = this.props;
-    dispatch(getProjects(this.circleToken));
-
     this.handleUpdateSettings = this.handleUpdateSettings.bind(this);
     this.handleVisibilityClick = this.handleVisibilityClick.bind(this);
+    this.handleTokenEnter = this.handleTokenEnter.bind(this);
   }
 
   handleUpdateSettings(setting, value) {
@@ -39,8 +35,20 @@ export class App extends Component {
     dispatch(toggleSettings());
   }
 
+  handleTokenEnter(value) {
+    const { dispatch } = this.props;
+    dispatch(updateSettings('UPDATE_CIRCLE_TOKEN', value));
+  }
+
   getDashboard() {
-    const { projects, settings } = this.props;
+    const { settings } = this.props;
+
+    if (settings.circleToken === '') {
+      return <Setup onTokenEnter={ this.handleTokenEnter } />;
+    }
+
+    const { projects, dispatch } = this.props;
+    dispatch(getProjects(settings.circleToken));
 
     if (Object.keys(projects).length > 0) {
       return (

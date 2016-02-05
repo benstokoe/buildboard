@@ -3,6 +3,39 @@ import { expect } from 'chai';
 import deepFreeze from 'deep-freeze';
 
 describe('Settings Reducer', () => {
+  it('should get the circle token from the search query when there', () => {
+    const { search } = global.window.location;
+    global.window.location.search = '?circleToken=mycircletoken';
+
+    const expectedResult = {
+      circleToken: 'mycircletoken',
+      dashboardName: 'Build Dashboard',
+      projectNameMapping: {},
+      showBranches: false,
+      showInfo: true,
+      specificProjects: [],
+      visible: false
+    };
+
+    expect(reducer(undefined, {})).to.deep.equal(expectedResult);
+    global.window.location.search = search;
+  });
+
+  it('should default to nothing when circle token isnt there', () => {
+    const state = {
+      circleToken: ''
+    };
+    const action = {
+      type: 'UPDATE_CIRCLE_TOKEN',
+      value: 'mycircletoken'
+    }
+    const expectedResult = {
+      circleToken: 'mycircletoken'
+    };
+
+    expect(reducer(state, action)).to.deep.equal(expectedResult);
+  });
+
   it('should update the dashboard name', () => {
     const state = {
       dashboardName: 'Build Dashboard'

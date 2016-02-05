@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Input from './Input.react';
 import SpecificProjects from './SpecificProjects.react';
 
@@ -7,14 +8,32 @@ const Settings = ({ projects, settings, handleUpdateSettings }) => (
     <h2>Settings</h2>
 
     <div className="settings-pod__settings">
-      <Input
-        classes="settings-pod__dashboard-name"
-        id="dashboardName"
-        label="Dashboard Name"
-        defaultValue={ settings.dashboardName }
-        placeholder="Dashboard Name"
-        onKeyUp={ (e) => { handleUpdateSettings('UPDATE_DASHBOARD_NAME', e.target.value); }}
-      />
+      <div className="settings-pod__circle-token">
+        <Input
+          id="circleToken"
+          label="Circle Token"
+          defaultValue={ settings.circleToken }
+          placeholder="Circle Token"
+        />
+
+        <a
+          href="#"
+          className="btn btn-primary settings-pod__circle-token-update-button"
+          onClick={ () => {
+            handleUpdateSettings('UPDATE_CIRCLE_TOKEN', document.querySelector('.settings-pod__circle-token input').value);
+          }}
+        >Update Circle Token</a>
+      </div>
+
+      <div className="settings-pod__dashboard-name">
+        <Input
+          id="dashboardName"
+          label="Dashboard Name"
+          defaultValue={ settings.dashboardName }
+          placeholder="Dashboard Name"
+          onKeyUp={ (e) => { handleUpdateSettings('UPDATE_DASHBOARD_NAME', e.target.value); }}
+        />
+      </div>
 
       <div className="settings-pod__show-info checkbox">
         <label>
