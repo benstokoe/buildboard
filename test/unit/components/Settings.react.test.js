@@ -7,7 +7,7 @@ import Settings from '../../../js/components/Settings.react';
 import Input from '../../../js/components/Input.react';
 import SpecificProjects from '../../../js/components/SpecificProjects.react';
 
-describe.only('Settings', () => {
+describe('Settings', () => {
   describe('Circle Token', () => {
     it('has an Input with the default value', () => {
       const settings = { circleToken: 'mycircletoken' };
@@ -16,7 +16,8 @@ describe.only('Settings', () => {
       expect(wrapper.find('.settings-pod__circle-token').prop('children')[0].props.defaultValue).to.equal('mycircletoken');
     });
 
-    it('should update the circle token on update button click', () => {
+    // TODO: Mock out document.queryselector 
+    it.skip('should update the circle token on update button click', () => {
       const settings = { circleToken: 'mycircletoken' };
       const handleUpdateSettings = sinon.spy();
       const wrapper = shallow(<Settings projects={{}} settings={ settings } handleUpdateSettings={ handleUpdateSettings } />);
