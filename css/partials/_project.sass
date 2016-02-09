@@ -1,6 +1,18 @@
 @import '../modules/_colours'
 @import '../modules/_mixins'
 
+.project
+  clear: both
+  background-color: $wet-asphalt
+  margin-top: 5px
+  margin-bottom: 5px
+
+  &:first-child, &.branch
+    margin-top: 0
+
+  &:last-child, &.branch
+    margin-bottom: 0
+
 .project__reponame
   padding: 30px
   font-size: 1.5em
