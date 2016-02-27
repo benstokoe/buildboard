@@ -19,6 +19,9 @@ export class App extends Component {
   constructor(props) {
     super(props);
 
+    this.getProjects();
+
+    this.getProjects = this.getProjects.bind(this);
     this.handleUpdateSettings = this.handleUpdateSettings.bind(this);
     this.handleVisibilityClick = this.handleVisibilityClick.bind(this);
     this.handleTokenEnter = this.handleTokenEnter.bind(this);
@@ -40,6 +43,15 @@ export class App extends Component {
     dispatch(updateSettings('UPDATE_CIRCLE_TOKEN', value));
   }
 
+  getProjects() {
+    const { settings, dispatch } = this.props;
+    dispatch(getProjects(settings.circleToken));
+
+    setInterval(() => {
+      dispatch(getProjects(settings.circleToken));
+    }, 10000);
+  }
+
   getDashboard() {
     const { settings } = this.props;
 
@@ -47,8 +59,7 @@ export class App extends Component {
       return <Setup onTokenEnter={ this.handleTokenEnter } />;
     }
 
-    const { projects, dispatch } = this.props;
-    dispatch(getProjects(settings.circleToken));
+    const { projects } = this.props;
 
     if (Object.keys(projects).length > 0) {
       return (
