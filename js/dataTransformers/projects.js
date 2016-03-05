@@ -1,5 +1,4 @@
 import moment from 'moment';
-import _ from 'underscore';
 
 const filterProject = (project) => {
   let filteredProject = {};
@@ -45,11 +44,15 @@ export const filterProjects = (projects) => {
   let reducedProjects = [];
   let filteredProjects = [];
 
-  const masterRepos = _.where(projects, { branch: 'master' });
+  const masterRepos = projects.filter(project => {
+    return project.branch === 'master';
+  });
+
   masterRepos.forEach((repo) => {
-    const repos = _.filter(projects, (project) => {
+    const repos = projects.filter(project => {
       return project.reponame === repo.reponame && project.branch !== 'master';
-    }).sort((a, b) => { return a.branch > b.branch; });
+    })
+    .sort((a, b) => { return a.branch > b.branch; });
 
     const reducedProject = {
       reponame: repo.reponame,
