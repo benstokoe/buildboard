@@ -29,7 +29,6 @@ export class App extends Component {
 
   handleUpdateSettings(setting, value) {
     const { dispatch } = this.props;
-    console.log(setting, value);
     dispatch(updateSettings(setting, value));
   }
 

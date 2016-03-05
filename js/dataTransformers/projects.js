@@ -24,7 +24,14 @@ const filterProject = (project) => {
     }
   }
 
+  let initials = project.author_name;
+  if (project.subject) {
+    initials = project.subject.split(':');
+    initials = initials.length === 1 ? project.author_name : initials[0];
+  }
+
   filteredProject.author = project.author_name;
+  filteredProject.authorInitials = initials;
   filteredProject.branch = project.branch;
   filteredProject.buildLength = buildLength;
   filteredProject.lastRun = lastRun;

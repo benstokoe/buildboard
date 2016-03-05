@@ -45,7 +45,7 @@ describe('Projects Reducer', () => {
         start_time: '2016-01-14T15:33:23.918Z',
         status: 'success',
         stop_time: '2016-01-14T15:35:29.610Z',
-        subject: 'Did something',
+        subject: 'JC: Did something',
         username: 'jesus'
       }]
     };
@@ -55,6 +55,7 @@ describe('Projects Reducer', () => {
         reponame: 'some-circle-ci-dashboard-thing',
         branches: [{
           author: 'The Best-Ever',
+          authorInitials: 'JC',
           branch: 'something-something',
           buildLength: '02:05',
           lastRun: 'a day ago',
@@ -63,6 +64,7 @@ describe('Projects Reducer', () => {
         }],
         master: {
           author: 'The Best-Ever',
+          authorInitials: 'The Best-Ever',
           branch: 'master',
           buildLength: '02:05',
           lastRun: 'a day ago',

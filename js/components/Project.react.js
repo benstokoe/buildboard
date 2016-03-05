@@ -21,6 +21,16 @@ class Project extends Component {
     return project.reponame;
   }
 
+  getAuthor() {
+    const { project, settings } = this.props;
+
+    if (settings.authorType === 'author') {
+      return project.author;
+    }
+
+    return project.authorInitials;
+  }
+
   getProjectInfo() {
     const { project, settings } = this.props;
 
@@ -29,7 +39,7 @@ class Project extends Component {
         <div className="project__info col-xs-12 col-md-6">
           <p className="project__last-run col-xs-4">{ project.lastRun }</p>
           <p className="project__build-length col-xs-4">{ project.buildLength }</p>
-          <p className="project__author col-xs-4">{ project.author }</p>
+          <p className="project__author col-xs-4">{ this.getAuthor() }</p>
         </div>
       );
     }

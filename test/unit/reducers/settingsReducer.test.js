@@ -3,6 +3,25 @@ import { expect } from 'chai';
 import deepFreeze from 'deep-freeze';
 
 describe('Settings Reducer', () => {
+  it('should have a default state', () => {
+    const { search } = global.window.location;
+    global.window.location.search = '?circleToken=mycircletoken';
+
+    const expectedResult = {
+      visible: false,
+      circleToken: 'mycircletoken',
+      dashboardName: 'Build Dashboard',
+      specificProjects: [],
+      projectNameMapping: {},
+      showInfo: true,
+      showBranches: false,
+      authorType: 'initials'
+    };
+
+    expect(reducer(undefined, {})).to.deep.equal(expectedResult);
+    global.window.location.search = search;
+  });
+
   it('should get the circle token from the search query when there', () => {
     const { search } = global.window.location;
     global.window.location.search = '?circleToken=mycircletoken';
@@ -14,7 +33,8 @@ describe('Settings Reducer', () => {
       showBranches: false,
       showInfo: true,
       specificProjects: [],
-      visible: false
+      visible: false,
+      authorType: 'initials'
     };
 
     expect(reducer(undefined, {})).to.deep.equal(expectedResult);
@@ -28,7 +48,7 @@ describe('Settings Reducer', () => {
     const action = {
       type: 'UPDATE_CIRCLE_TOKEN',
       value: 'mycircletoken'
-    }
+    };
     const expectedResult = {
       circleToken: 'mycircletoken'
     };
@@ -183,5 +203,22 @@ describe('Settings Reducer', () => {
       showBranches: true
     };
     expect(reducer(expectedResult, action)).to.deep.equal(andBackAgain);
+  });
+
+  it('should change the author type', () => {
+    const state = {
+      authorType: 'initials'
+    };
+    const action = {
+      type: 'CHANGE_AUTHOR_TYPE',
+      value: 'author'
+    };
+    const expectedResult = {
+      authorType: 'author'
+    };
+
+    deepFreeze(state);
+
+    expect(reducer(state, action)).to.deep.equal(expectedResult);
   });
 });

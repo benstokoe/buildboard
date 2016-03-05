@@ -14,7 +14,8 @@ export default function settings(state = {
   specificProjects: [],
   projectNameMapping: {},
   showInfo: true,
-  showBranches: false
+  showBranches: false,
+  authorType: 'initials'
 }, action) {
   switch (action.type) {
   case 'TOGGLE_SETTINGS':
@@ -54,6 +55,8 @@ export default function settings(state = {
     return Object.assign({}, state, { showInfo: !state.showInfo });
   case 'TOGGLE_PROJECT_BRANCHES':
     return Object.assign({}, state, { showBranches: !state.showBranches });
+  case 'CHANGE_AUTHOR_TYPE':
+    return Object.assign({}, state, { authorType: action.value });
   default:
     return state;
   }

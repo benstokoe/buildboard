@@ -58,6 +58,38 @@ const Settings = ({ projects, settings, handleUpdateSettings }) => (
       </div>
 
       <SpecificProjects projects={ projects } settings={ settings } handleUpdateSettings={ handleUpdateSettings } />
+
+      <div className="settings-pod__author-type">
+        <label>Author type</label>
+        <div className="radio settings-pod__author-type-radio">
+          <label>
+            <input
+              type="radio"
+              name="optionsRadios"
+              id="optionsRadios1"
+              className="settings-pod__author-type-radio--initials"
+              value="initials"
+              checked={ settings.authorType === 'initials' }
+              onChange={ (e) => { handleUpdateSettings('CHANGE_AUTHOR_TYPE', 'initials'); } }
+            />
+            Initials (AA|BB: commit message)
+          </label>
+        </div>
+        <div className="radio settings-pod__author-type-radio">
+          <label>
+            <input
+              type="radio"
+              name="optionsRadios"
+              id="optionsRadios2"
+              className="settings-pod__author-type-radio--author"
+              value="author"
+              checked={ settings.authorType === 'author' }
+              onChange={ (e) => { handleUpdateSettings('CHANGE_AUTHOR_TYPE', 'author'); } }
+            />
+            Author Name
+          </label>
+        </div>
+      </div>
     </div>
   </div>
 );

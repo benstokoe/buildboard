@@ -72,4 +72,40 @@ describe('Settings', () => {
       expect(wrapper.find(SpecificProjects).length).to.equal(1);
     });
   });
+
+  describe('Change Author Type', () => {
+    it('should render a radio group', () => {
+      const settings = { authorType: 'initials' };
+      const handleUpdateSettings = () => {};
+      const wrapper = shallow(<Settings projects={{}} settings={ settings } handleUpdateSettings={ handleUpdateSettings } />);
+
+      expect(wrapper.find('.settings-pod__author-type-radio').length).to.equal(2);
+    });
+
+    it('should highlight the option form settings', () => {
+      const settings = { authorType: 'initials' };
+      const handleUpdateSettings = () => {};
+      const wrapper = shallow(<Settings projects={{}} settings={ settings } handleUpdateSettings={ handleUpdateSettings } />);
+
+      expect(wrapper.find('.settings-pod__author-type-radio--initials').prop('checked')).to.equal(true);
+      expect(wrapper.find('.settings-pod__author-type-radio--author').prop('checked')).to.equal(false);
+
+      settings.authorType = 'author';
+      wrapper.setProps(settings);
+      expect(wrapper.find('.settings-pod__author-type-radio--initials').prop('checked')).to.equal(false);
+      expect(wrapper.find('.settings-pod__author-type-radio--author').prop('checked')).to.equal(true);
+    });
+
+    it('should call update settings on radio change', () => {
+      const settings = { authorType: 'initials' };
+      const handleUpdateSettings = sinon.spy();
+      const wrapper = shallow(<Settings projects={{}} settings={ settings } handleUpdateSettings={ handleUpdateSettings } />);
+
+      wrapper.find('.settings-pod__author-type-radio--author').simulate('change');
+      expect(handleUpdateSettings.calledWith('CHANGE_AUTHOR_TYPE', 'author')).to.equal(true);
+
+      wrapper.find('.settings-pod__author-type-radio--initials').simulate('change');
+      expect(handleUpdateSettings.calledWith('CHANGE_AUTHOR_TYPE', 'initials')).to.equal(true);
+    });
+  });
 });
