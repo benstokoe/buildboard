@@ -5,7 +5,7 @@ const SpecificProjects = ({ projects, settings: { specificProjects }, handleUpda
     <label>Show specific projects</label>
     { projects.map(project => {
       const reponame = project.reponame;
-      const checked = specificProjects.indexOf(reponame) > -1 || specificProjects.length === 0;
+      const checked = !(specificProjects.indexOf(reponame) > -1) || specificProjects.length === 0;
       project = project.master;
 
       return (

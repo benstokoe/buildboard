@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import sinon from 'sinon';
 
 import SpecificProjects from '../../../js/components/SpecificProjects.react';
 
@@ -37,7 +36,7 @@ describe('SpecificProjects Pod', () => {
       stop_time: '2015-08-05T20:40:04.500Z'
     }
   }];
-  const settings = { specificProjects: [ 'Build Dashboard' ] };
+  const settings = { specificProjects: [ 'Secret stuff' ] };
 
   it('should show the projects', () => {
     const handleUpdateSettings = () => {};
