@@ -37,11 +37,16 @@
   line-height: 50px
   font-size: 1.5em
   text-align: center
+  margin-bottom: 0
+  border-right: solid 1px $midnight-blue
 
-  @include lg-desktop
-    line-height: 99px
+  @include md-desktop
+    line-height: 109px
 
-.project__reponame h2, .project__author
+.project__author
+  border: none
+
+.project__reponame h2, .project__author, .project__last-run
   @include ellipsis
 
 .branch
@@ -54,7 +59,7 @@
     padding: 20px 30px
 
   .project__info > p
-    line-height: 67px
+    line-height: 77px
 
   &.failed .project__reponame
     border-left: solid 50px $pomegranate-dark
