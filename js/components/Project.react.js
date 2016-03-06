@@ -56,9 +56,10 @@ class Project extends Component {
     );
 
     const reponameClasses = classnames(
-      'project__reponame col-md-6',
+      'project__reponame',
       {
-        'col-lg-6': settings.showInfo
+        'col-lg-12': !settings.showInfo,
+        'col-md-6': settings.showInfo
       }
     );
 

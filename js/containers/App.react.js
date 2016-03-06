@@ -79,6 +79,7 @@ export class App extends Component {
 
   render() {
     const { settings } = this.props;
+
     return (
       <div className="container-fluid">
         <Header header={ settings.dashboardName } />
