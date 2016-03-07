@@ -11,7 +11,7 @@ class ProjectList extends Component {
     const { settings } = this.props;
     let projectItems = [];
 
-    projects.map((project) => {
+    projects.map(project => {
       projectItems.push(
         <Project key={ project.master.reponame } project={ project.master } settings={ settings } />
       );

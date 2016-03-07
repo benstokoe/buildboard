@@ -51,8 +51,7 @@ export const filterProjects = (projects) => {
   masterRepos.forEach((repo) => {
     const repos = projects.filter(project => {
       return project.reponame === repo.reponame && project.branch !== 'master';
-    })
-    .sort((a, b) => { return a.branch > b.branch; });
+    }).sort((a, b) => { return a.branch > b.branch; });
 
     const reducedProject = {
       reponame: repo.reponame,

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Input from './Input.react';
 import SpecificProjects from './SpecificProjects.react';
 
@@ -70,7 +69,7 @@ const Settings = ({ projects, settings, handleUpdateSettings }) => (
               className="settings-pod__author-type-radio--initials"
               value="initials"
               checked={ settings.authorType === 'initials' }
-              onChange={ (e) => { handleUpdateSettings('CHANGE_AUTHOR_TYPE', 'initials'); } }
+              onChange={ () => { handleUpdateSettings('CHANGE_AUTHOR_TYPE', 'initials'); } }
             />
             Initials (AA|BB: commit message)
           </label>
@@ -84,7 +83,7 @@ const Settings = ({ projects, settings, handleUpdateSettings }) => (
               className="settings-pod__author-type-radio--author"
               value="author"
               checked={ settings.authorType === 'author' }
-              onChange={ (e) => { handleUpdateSettings('CHANGE_AUTHOR_TYPE', 'author'); } }
+              onChange={ () => { handleUpdateSettings('CHANGE_AUTHOR_TYPE', 'author'); } }
             />
             Author Name
           </label>
