@@ -35,7 +35,7 @@
 }
 
 .running .project__reponame, .scheduled .project__reponame {
-  background-color: $orange;
+  background-color: $carrot;
 }
 
 .queued .project__reponame {
@@ -90,10 +90,10 @@
   }
 
   &.running .project__reponame, &.scheduled .project__reponame {
-    border-color: $orange-dark;
+    border-color: $carrot-dark;
   }
 
   &.queued .project__reponame {
-    border-color: $wisteria;
+    border-color: $amethyst-dark;
   }
 }
