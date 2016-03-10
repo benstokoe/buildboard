@@ -1,0 +1,99 @@
+@import '../modules/_colours';
+@import '../modules/_mixins';
+
+.project {
+  clear: both;
+  background-color: $wet-asphalt;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  &:first-child, &.branch {
+    margin-top: 0;
+  }
+
+  &:last-child, &.branch {
+    margin-bottom: 0;
+  }
+}
+
+.project__reponame {
+  padding: 30px;
+  font-size: 1.5em;
+  background-color: $asbestos;
+}
+
+.failed .project__reponame {
+  background-color: $pomegranate;
+}
+
+.timedout .project__reponame {
+  background-color: $asbestos;
+}
+
+.success .project__reponame, .fixed .project__reponame {
+  background-color: $nephritis;
+}
+
+.running .project__reponame, .scheduled .project__reponame {
+  background-color: $orange;
+}
+
+.queued .project__reponame {
+  background-color: $amethyst;
+}
+
+.project__last-run, .project__build-length, .project__author {
+  line-height: 50px;
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 0;
+  border-right: solid 1px $midnight-blue;
+
+  @include md-desktop {
+    line-height: 109px;
+  }
+}
+
+.project__author {
+  border: none;
+}
+
+.project__reponame h2, .project__author, .project__last-run {
+  @include ellipsis
+}
+
+.branch {
+  font-size: 0.75em;
+
+  h2 {
+    font-weight: 500;
+  }
+
+  .project__reponame {
+    padding: 20px 30px;
+  }
+
+  .project__info > p {
+    line-height: 77px;
+  }
+
+  .project__reponame {
+    border-left: solid 50px $asbestos-dark;
+  }
+
+  &.failed .project__reponame {
+    border-color: $pomegranate-dark;
+  }
+
+  &.success .project__reponame, &.fixed .project__reponame {
+    border-color: $nephritis-dark;
+  }
+
+  &.running .project__reponame, &.scheduled .project__reponame {
+    border-color: $orange-dark;
+  }
+
+  &.queued .project__reponame {
+    border-color: $wisteria;
+  }
+}

@@ -1,0 +1,33 @@
+@import '../modules/_colours';
+
+body {
+  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: $midnight-blue;
+  color: $clouds;
+  font-size: 2em;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: $asbestos-dark;
+  text-decoration: none;
+}
+
+h1, h2 {
+  padding: 0;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 4.5em;
+  margin: 10px 0 5px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+  margin: 0;
+}

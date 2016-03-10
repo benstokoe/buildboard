@@ -1,0 +1,31 @@
+.setup {
+  margin: 30px auto 0;
+
+  @include md-desktop {
+    width: 60%;
+  }
+}
+
+.setup__circle-token {
+  text-align: center;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+.setup__circle-token-input {
+  width: 100%;
+  background-color: $wet-asphalt;
+  border: none;
+  height: 80px;
+  text-align: center;
+  padding: 20px;
+  font-size: 40px;
+  line-height: 42px;
+}
+
+.setup__info {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 24px;
+}
