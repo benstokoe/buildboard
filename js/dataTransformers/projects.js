@@ -28,6 +28,7 @@ const filterProject = (project) => {
     initials = project.subject.split(':');
     initials = initials.length === 1 ? project.author_name : initials[0];
   }
+  initials = initials === null ? project.username : initials;
 
   const status = project.lifecycle === 'queued' ? 'queued' : project.status.toLowerCase();
 
