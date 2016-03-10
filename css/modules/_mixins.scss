@@ -16,14 +16,6 @@
   }
 }
 
-@mixin clearfix {
-  &:after {
-    content: ' ';
-    display: block;
-    clear: both;
-  }
-}
-
 @mixin ellipsis {
   text-overflow: ellipsis;
   white-space: nowrap;

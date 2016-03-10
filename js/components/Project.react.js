@@ -51,12 +51,12 @@ class Project extends Component {
     const { project, settings } = this.props;
 
     const projectClasses = classnames(
-      'row project', project.status,
+      'row project',
       { branch: project.branch !== 'master' }
     );
 
     const reponameClasses = classnames(
-      'project__reponame',
+      `project__reponame project__reponame--${ project.status }`,
       {
         'col-lg-12': !settings.showInfo,
         'col-md-6': settings.showInfo
@@ -66,7 +66,7 @@ class Project extends Component {
     return (
       <div className={ projectClasses }>
         <div className={ reponameClasses }>
-          <h2>{ this.getReponame() }</h2>
+          <h2 className="project__reponame-title">{ this.getReponame() }</h2>
         </div>
         { this.getProjectInfo() }
       </div>

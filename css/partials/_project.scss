@@ -22,24 +22,24 @@
   background-color: $asbestos;
 }
 
-.failed .project__reponame {
+.project__reponame--failed {
   background-color: $pomegranate;
 }
 
-.timedout .project__reponame {
-  background-color: $asbestos;
-}
-
-.success .project__reponame, .fixed .project__reponame {
+.project__reponame--success, .project__reponame--fixed {
   background-color: $nephritis;
 }
 
-.running .project__reponame, .scheduled .project__reponame {
+.project__reponame--running, .project__reponame--scheduled {
   background-color: $carrot;
 }
 
-.queued .project__reponame {
+.project__reponame--queued {
   background-color: $amethyst;
+}
+
+.project__info {
+  border-left: solid 5px $midnight-blue;
 }
 
 .project__last-run, .project__build-length, .project__author {
@@ -58,7 +58,7 @@
   border: none;
 }
 
-.project__reponame h2, .project__author, .project__last-run {
+.project__reponame-title, .project__author, .project__last-run {
   @include ellipsis
 }
 
@@ -69,31 +69,28 @@
     font-weight: 500;
   }
 
-  .project__reponame {
-    padding: 20px 30px;
-  }
-
-  .project__info > p {
+  .project__last-run, .project__build-length, .project__author {
     line-height: 77px;
   }
 
   .project__reponame {
+    padding: 20px 30px;
     border-left: solid 50px $asbestos-dark;
   }
 
-  &.failed .project__reponame {
+  .project__reponame--failed {
     border-color: $pomegranate-dark;
   }
 
-  &.success .project__reponame, &.fixed .project__reponame {
+  .project__reponame--success, .project__reponame--fixed {
     border-color: $nephritis-dark;
   }
 
-  &.running .project__reponame, &.scheduled .project__reponame {
+  .project__reponame--running, .project__reponame--scheduled {
     border-color: $carrot-dark;
   }
 
-  &.queued .project__reponame {
+  .project__reponame--queued {
     border-color: $amethyst-dark;
   }
 }

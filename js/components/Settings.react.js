@@ -4,7 +4,7 @@ import SpecificProjects from './SpecificProjects.react';
 
 const Settings = ({ projects, settings, handleUpdateSettings }) => (
   <div className="settings-pod">
-    <h2>Settings</h2>
+    <h2 className="settings-pod__title">Settings</h2>
 
     <div className="settings-pod__settings">
       <div className="settings-pod__circle-token">

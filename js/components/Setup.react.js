@@ -6,7 +6,7 @@ const Setup = ({ onTokenEnter }) => (
     <input
       className="setup__circle-token-input"
       onKeyPress={ (e) => {
-        e.key === 'Enter' ? onTokenEnter(e.target.value) : null
+        e.key === 'Enter' ? onTokenEnter(e.target.value) : null;
       }}
     />
 
@@ -15,6 +15,6 @@ const Setup = ({ onTokenEnter }) => (
       <p>You can get this from API Tokens under Account Settings</p>
     </div>
   </div>
-)
+);
 
 export default Setup;

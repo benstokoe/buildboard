@@ -2,8 +2,8 @@ import React from 'react';
 
 const Header = ({ title }) => {
   return (
-    <div className="row col-md-12">
-      <h1 className="dashboard-header">{ title === '' ? 'Build Dashboard' : title }</h1>
+    <div className="header row col-md-12">
+      <h1 className="header__title">{ title === '' ? 'Build Dashboard' : title }</h1>
     </div>
   );
 };
