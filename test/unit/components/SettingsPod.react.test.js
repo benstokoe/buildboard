@@ -21,7 +21,7 @@ describe('Settings Pod', () => {
         onVisibilityClick={ handleVisibilityClick }
       />);
     expect(wrapper.find(Settings).length).to.equal(0);
-    expect(wrapper.find('.settings-cog').length).to.equal(1);
+    expect(wrapper.find('.settings__cog').length).to.equal(1);
 
     settings.visible = true;
     wrapper.setProps(settings);
@@ -42,7 +42,7 @@ describe('Settings Pod', () => {
         onVisibilityClick={ handleVisibilityClick }
       />);
 
-    wrapper.find('.settings-cog').simulate('click');
+    wrapper.find('.settings__cog').simulate('click');
     expect(handleVisibilityClick.calledOnce).to.equal(true);
   });
 
@@ -60,7 +60,7 @@ describe('Settings Pod', () => {
         onVisibilityClick={ handleVisibilityClick }
       />);
 
-    wrapper.find('.close-icon').simulate('click');
+    wrapper.find('.settings__close-icon').simulate('click');
     expect(handleVisibilityClick.calledOnce).to.equal(true);
   });
 });

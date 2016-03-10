@@ -31,7 +31,7 @@ describe('Project', () => {
 
   it('should have the outcome of the build in the classname', () => {
     const wrapper = shallow(<Project project={ project } settings={ settings } />);
-    expect(wrapper.get(0).props.className).to.include('success');
+    expect(wrapper.find('.project__reponame').prop('className')).to.include('success');
   });
 
   it('should show the right reponame if project is in projectNameMapping', () => {

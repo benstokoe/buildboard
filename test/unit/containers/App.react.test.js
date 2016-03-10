@@ -4,6 +4,7 @@ import { expect } from 'chai';
 
 import { App } from '../../../js/containers/App.react';
 import Setup from '../../../js/components/Setup.react';
+import Spinner from '../../../js/components/Spinner.react';
 import ProjectList from '../../../js/components/ProjectList.react';
 import SettingsPod from '../../../js/components/SettingsPod.react';
 import Header from '../../../js/components/Header.react';
@@ -25,7 +26,7 @@ describe('App', () => {
   it('should be loading if no projects', () => {
     const wrapper = shallow(<App projects={{}} settings={ settings } dispatch={ dispatch }/>);
 
-    expect(wrapper.find('.build-dashboard').text()).to.equal('Loading projects');
+    expect(wrapper.find(Spinner).length).to.equal(1);
   });
 
   it('should render projects and settings if there are projects', () => {
