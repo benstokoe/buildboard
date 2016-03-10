@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Header = ({ header }) => {
+const Header = ({ title }) => {
   return (
     <div className="row col-md-12">
-      <h1 className="dashboard-header">{ header === '' ? 'Build Dashboard' : header }</h1>
+      <h1 className="dashboard-header">{ title === '' ? 'Build Dashboard' : title }</h1>
     </div>
   );
 };

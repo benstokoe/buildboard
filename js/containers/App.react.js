@@ -82,7 +82,7 @@ export class App extends Component {
 
     return (
       <div className="container-fluid">
-        <Header header={ settings.dashboardName } />
+        <Header title={ settings.dashboardName } />
 
         <div className="build-dashboard">
           { this.getDashboard() }
