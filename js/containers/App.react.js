@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { getProjects } from '../actions/circleActions';
 import { toggleSettings, updateSettings } from '../actions/settingsActions';
 
+import Spinner from '../components/Spinner.react';
 import Setup from '../components/Setup.react';
 import ProjectList from '../components/ProjectList.react';
 import SettingsPod from '../components/SettingsPod.react';
@@ -74,7 +75,7 @@ export class App extends Component {
       );
     }
 
-    return <p>Loading projects</p>;
+    return <Spinner />;
   }
 
   render() {
