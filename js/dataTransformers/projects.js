@@ -29,13 +29,15 @@ const filterProject = (project) => {
     initials = initials.length === 1 ? project.author_name : initials[0];
   }
 
+  const status = project.lifecycle === 'queued' ? 'queued' : project.status.toLowerCase();
+
   filteredProject.author = project.author_name;
   filteredProject.authorInitials = initials;
   filteredProject.branch = project.branch;
   filteredProject.buildLength = buildLength;
   filteredProject.lastRun = lastRun;
   filteredProject.reponame = project.reponame;
-  filteredProject.status = project.status.toLowerCase();
+  filteredProject.status = status;
 
   return filteredProject;
 };

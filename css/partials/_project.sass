@@ -33,6 +33,9 @@
 .running .project__reponame, .scheduled .project__reponame
   background-color: $orange
 
+.queued .project__reponame
+  background-color: $amethyst
+
 .project__last-run, .project__build-length, .project__author
   line-height: 50px
   font-size: 1.5em
@@ -61,14 +64,17 @@
   .project__info > p
     line-height: 77px
 
-  &.failed .project__reponame
-    border-left: solid 50px $pomegranate-dark
-
-  &.timedout .project__reponame, &.canceled .project__reponame
+  .project__reponame
     border-left: solid 50px $asbestos-dark
 
+  &.failed .project__reponame
+    border-color: $pomegranate-dark
+
   &.success .project__reponame, &.fixed .project__reponame
-    border-left: solid 50px $nephritis-dark
+    border-color: $nephritis-dark
 
   &.running .project__reponame, &.scheduled .project__reponame
-    border-left: solid 50px $orange-dark
+    border-color: $orange-dark
+
+  &.queued .project__reponame
+    border-color: $wisteria

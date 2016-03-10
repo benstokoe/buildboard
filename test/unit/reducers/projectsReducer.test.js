@@ -43,7 +43,7 @@ describe('Projects Reducer', () => {
         reponame: 'some-circle-ci-dashboard-thing',
         running_builds: undefined,
         start_time: '2016-01-14T15:33:23.918Z',
-        status: 'success',
+        status: 'queued',
         stop_time: '2016-01-14T15:35:29.610Z',
         subject: 'JC: Did something',
         username: 'jesus'
@@ -60,7 +60,7 @@ describe('Projects Reducer', () => {
           buildLength: '02:05',
           lastRun: 'a day ago',
           reponame: 'some-circle-ci-dashboard-thing',
-          status: 'success'
+          status: 'queued'
         }],
         master: {
           author: 'The Best-Ever',
