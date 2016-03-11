@@ -11,7 +11,7 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/ },
-      { test: /\.sass$/, loader: ExtractTextPlugin.extract('css!sass?indentedSyntax') },
+      { test: /\.(scss|css)$/, loader: ExtractTextPlugin.extract('css!postcss-loader!sass') },
       { test: /\.(svg|woff2|eot|ttf|woff)$/, loader: 'url-loader?limit=100000'  }
     ]
   },
