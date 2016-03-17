@@ -1,12 +1,12 @@
-# Adaptors
+# Adapters
 
-Adaptors allow the dashboard to get build information from multiple sources
+Adapters allow the dashboard to get build information from multiple sources
 
-### Current adaptors
+### Current adapters
 
 Circle CI
 
-### In progress adaptors
+### In progress adapters
 
 Travis CI
 
