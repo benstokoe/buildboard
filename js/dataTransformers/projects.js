@@ -3,7 +3,7 @@ import moment from 'moment';
 const filterProject = (project) => {
   let filteredProject = {};
 
-  const status = 'queued';
+  const status = project.lifecycle === 'queued' ? 'queued' : project.status;
   let lastRun;
   if (project.stop_time) {
     lastRun = moment(project.stop_time).startOf().fromNow();
