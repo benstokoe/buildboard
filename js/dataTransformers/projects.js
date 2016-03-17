@@ -3,9 +3,18 @@ import moment from 'moment';
 const filterProject = (project) => {
   let filteredProject = {};
 
-  const lastRun = project.stop_time ? moment(project.stop_time).startOf().fromNow() : 'Running now';
+  const status = 'queued';
+  let lastRun;
+  if (project.stop_time) {
+    lastRun = moment(project.stop_time).startOf().fromNow();
+  } else if (status === 'queued') {
+    lastRun = 'Queued';
+  } else {
+    lastRun = 'Running Now';
+  }
+
   let buildLength;
-  if (project.status !== 'running') {
+  if (status !== 'running') {
     buildLength = moment.duration(project.build_time_millis);
     buildLength = ('0' + buildLength.minutes()).slice(-2) + ':' + ('0' + buildLength.seconds()).slice(-2);
   } else {
@@ -29,8 +38,6 @@ const filterProject = (project) => {
     initials = initials.length === 1 ? project.author_name : initials[0];
   }
   initials = initials === null ? project.username : initials;
-
-  const status = project.lifecycle === 'queued' ? 'queued' : project.status.toLowerCase();
 
   filteredProject.author = project.author_name;
   filteredProject.authorInitials = initials;
