@@ -16,18 +16,18 @@ The adaptor needs to return project information in this format:
 
 ```json
 [{
-  reponame: 'Project reponame',
-  master: {
-    author,
-    authorInitials,
-    branch,
-    buildLength,
-    lastRun,
-    reponame,
-    status
+  "reponame": "Project reponame",
+  "master": {
+    "author",
+    "authorInitials",
+    "branch",
+    "buildLength",
+    "lastRun",
+    "reponame",
+    "status"
   },
-  branches: [{
-    ... same as master
+  "branches": [{
+    "...": "same as master"
   }]
 }]
 ```
