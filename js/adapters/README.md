@@ -18,13 +18,13 @@ The adaptor needs to return project information in this format:
 [{
   "reponame": "Project reponame",
   "master": {
-    "author",
-    "authorInitials",
-    "branch",
-    "buildLength",
-    "lastRun",
-    "reponame",
-    "status"
+    "author": "",
+    "authorInitials": "",
+    "branch": "",
+    "buildLength": "",
+    "lastRun": "",
+    "reponame": "",
+    "status": ""
   },
   "branches": [{
     "...": "same as master"
