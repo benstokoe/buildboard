@@ -10,4 +10,4 @@ deployment:
   main:
     branch: master
     heroku:
-      appname: circledashboard
+      appname: buildboard
