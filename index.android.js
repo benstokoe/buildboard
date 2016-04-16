@@ -1,45 +1,8 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- */
+import React, { AppRegistry } from 'react-native';
+import App from './js/native/containers/Root.react';
 
-import React, { AppRegistry, Component, StyleSheet, Text, View } from 'react-native';
-
-class buildboardnative extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native! Woo!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+const buildboardnative = () => (
+  <App />
+);
 
 AppRegistry.registerComponent('buildboardnative', () => buildboardnative);

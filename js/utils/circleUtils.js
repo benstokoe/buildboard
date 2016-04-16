@@ -1,4 +1,7 @@
-import fetch from 'isomorphic-fetch';
+if (process.env.IS_BROWSER) {
+  // dont need this for native:w
+  //var fetch = require('isomorphic-fetch');
+} 
 
 const CIRCLE_URL = 'https://circleci.com/api/v1';
 
@@ -63,5 +66,6 @@ export const getMungedProjects = (token) => {
     headers: { Accept: 'application/json' }
   })
   .then(response => response.json())
-  .then(projects => recieveProjects(projects, token));
+  .then(projects => recieveProjects(projects, token))
+  .catch(e => new Error(e));
 };

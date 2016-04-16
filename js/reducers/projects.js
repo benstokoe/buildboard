@@ -5,6 +5,7 @@ export default function projects(state = {}, action) {
   case 'GET_PROJECTS_LOADING':
     return state;
   case 'GET_PROJECTS_SUCCESS':
+    console.log('success!');
     const filteredProjects = filterProjects(action.payload);
     return Object.assign({}, state, { items: filteredProjects });
   case 'GET_PROJECTS_ERROR':
