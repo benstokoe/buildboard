@@ -10,6 +10,9 @@ export default function projects(state = {}, action) {
     return Object.assign({}, state, { items: filteredProjects });
   case 'GET_PROJECTS_ERROR':
     return state;
+  case 'SET_CURRENT_PROJECT':
+    const { project } = action.payload;
+    return Object.assign({}, state, { current: project });
   default:
     return state;
   }

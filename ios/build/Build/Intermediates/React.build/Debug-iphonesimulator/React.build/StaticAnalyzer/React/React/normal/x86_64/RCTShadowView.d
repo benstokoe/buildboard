@@ -1,0 +1,22 @@
+dependencies: \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Views/RCTShadowView.m \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Views/RCTShadowView.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Layout/Layout.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Views/RCTComponent.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Base/RCTRootView.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Base/RCTJavaScriptExecutor.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Base/RCTConvert.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Views/RCTAnimationType.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Views/RCTBorderStyle.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Views/RCTTextDecorationLineType.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Views/RCTPointerEvents.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/Ben/projects/buildboardnative/node_modules/react-native/React/Views/UIView+React.h

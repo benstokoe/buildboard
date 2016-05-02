@@ -73,7 +73,31 @@ describe('Projects Reducer', () => {
           reponame: 'some-circle-ci-dashboard-thing',
           status: 'success'
         }
-      }]
+      }],
+      current: {}
+    };
+
+    deepFreeze(state);
+
+    expect(reducer(state, action)).to.deep.equal(expectedResult);
+  });
+
+  it('should set the current project', () => {
+    const state = {};
+    const action = {
+      type: 'GET_PROJECTS_SUCCESS',
+      payload: {
+        project: {
+          reponame: 'My repo'
+        }
+      }
+    };
+
+    const expectedResult = {
+      items: [],
+      current: {
+        reponame: 'My repo'
+      }
     };
 
     deepFreeze(state);
