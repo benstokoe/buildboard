@@ -53,10 +53,16 @@ const filterProject = (project) => {
 export const filterProjects = (projects) => {
   let reducedProjects = [];
   let filteredProjects = [];
+  let masterRepos;
 
-  const masterRepos = projects.filter(project => {
-    return project.branch === 'master';
-  });
+
+  try {
+    masterRepos = projects.filter(project => {
+      return project.branch === 'master';
+    });
+  } catch (e) {
+    return projects;
+  }
 
   masterRepos.forEach((repo) => {
     const repos = projects.filter(project => {

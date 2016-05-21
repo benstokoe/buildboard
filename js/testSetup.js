@@ -1,6 +1,6 @@
 require('babel-core/register')({
-  ignore: /node_modules/,
-  presets: ['es2015', 'stage-0']
+  presets: ['es2015', 'stage-0', 'react'],
+  plugins: ['transform-decorators-legacy', 'add-module-exports']
 });
 
 import jsdom from 'jsdom';

@@ -23,8 +23,7 @@ export const projectStyles = (status) => {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: getBackgroundColour(status),
-    marginTop: 5,
-    marginBottom: 5,
+    marginBottom: 2,
     paddingTop: 20,
     paddingBottom: 20,
   }

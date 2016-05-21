@@ -25,6 +25,7 @@ describe('Settings Reducer', () => {
   it('should get the circle token from the search query when there', () => {
     const { search } = global.window.location;
     global.window.location.search = '?circleToken=mycircletoken';
+    console.log(global.window.location.search);
 
     const expectedResult = {
       circleToken: 'mycircletoken',

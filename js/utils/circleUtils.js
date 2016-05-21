@@ -1,7 +1,6 @@
 if (process.env.IS_BROWSER) {
-  // dont need this for native:w
-  //var fetch = require('isomorphic-fetch');
 } 
+var fetch = require('isomorphic-fetch');
 
 const CIRCLE_URL = 'https://circleci.com/api/v1';
 

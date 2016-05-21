@@ -1,5 +1,5 @@
 const getCircleToken = () => {
-  return '5347095e7f5227c236ba0ee1fd993c4752127479';
+  //return '5347095e7f5227c236ba0ee1fd993c4752127479';
   const search = window.location.search.match(/circleToken/);
   
   if (search !== null) {

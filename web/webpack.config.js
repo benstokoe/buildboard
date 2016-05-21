@@ -15,9 +15,8 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.js$/,
-        loaders: ['react-hot', 'babel-loader'],
-        exclude: /node_modules/,
-        query: { presets: ['es2015', 'react'] }
+        loaders: ['react-hot', 'babel?presets[]=react,presets[]=es2015,presets[]=stage-0'],
+        exclude: /node_modules/
       },
       { test: /\.(scss|css)$/, loader: ExtractTextPlugin.extract('css!postcss-loader!sass') },
       { test: /\.(svg|woff2|eot|ttf|woff)$/, loader: 'url-loader?limit=100000'  }

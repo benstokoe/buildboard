@@ -1,4 +1,4 @@
-import React, { Component, View, Text, ListView, StyleSheet, PropTypes} from 'react-native';
+import React, { Component, View, Text, ListView, StyleSheet, PropTypes } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
@@ -7,6 +7,9 @@ import { setCurrentProject } from '../../actions/projectActions';
 
 import Setup from '../components/Setup.react';
 import Project from '../components/ProjectItem.react';
+import Loading from '../components/Loading.react';
+
+import styles from '../styles/Projects.styles';
 
 class Projects extends Component {
   static propTypes = {
@@ -33,6 +36,14 @@ class Projects extends Component {
     dispatch(setCurrentProject(project));
     Actions.project();
   }
+  
+  renderSectionHeader() {
+    return (
+      <View style={ styles.sectionHeader }>
+        <Text style={ styles.sectionHeaderText }>Projects</Text>
+      </View>
+    ); 
+  }
 
   render() {
     const { projects } = this.props;
@@ -42,21 +53,16 @@ class Projects extends Component {
         <View style={ styles.container }>
           <ListView
             dataSource={dataSource}
+            renderSectionHeader={ this.renderSectionHeader }
             renderRow={project => <Project onPress={ this.setCurrentProject } project={ project } />}
           />
         </View>
       );
     }
 
-    return <Text>Loading...</Text>;
+    return <Loading />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#2c3e50',
-  }
-})
 
 export default connect(state => {
   return {
