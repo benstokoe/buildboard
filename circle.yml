@@ -3,6 +3,8 @@ machine:
     version: 5.2.0
 
 dependencies:
+  override:
+    - npm i -g npm@3.x
   cache_directories:
     - "../node_modules"
 
