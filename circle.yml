@@ -5,6 +5,7 @@ machine:
 dependencies:
   override:
     - npm i -g npm@3.x
+    - npm i
   cache_directories:
     - "../node_modules"
 
