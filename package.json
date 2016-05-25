@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node web/serve.js",
-    "postinstall": "./node_modules/.bin/webpack --config webpack.production.config.js",
+    "postinstall": "./node_modules/.bin/webpack --config web/webpack.production.config.js",
     "native": "react-native start",
     "reset-cache": "./node_modules/react-native/packager/packager.sh start --reset-cache",
     "test": "IS_BROWSER=true ./node_modules/.bin/mocha --require js/testSetup.js --compilers js:babel-register js/**/*.test.js",
