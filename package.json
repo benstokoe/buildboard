@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node web/server.js",
+    "start": "IS_BROWSER=true node web/server.js",
     "build": "./node_modules/.bin/webpack --config web/webpack.production.config.js",
     "native": "react-native start",
     "reset-cache": "./node_modules/react-native/packager/packager.sh start --reset-cache",
