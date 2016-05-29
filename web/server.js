@@ -2,8 +2,7 @@ var express = require('express');
 var path = require('path');
 
 var app = express();
-var static_path = path.join(__dirname, 'dist');
-console.log('serve dist', static_path);
+var static_path = path.join('dist');
 
 app.use(express.static(static_path))
   .get('/', function (req, res) {
